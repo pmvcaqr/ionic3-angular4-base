@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="property-list">
+  <card-list *ngIf="viewMode==='cardList'" [items]="properties"></card-list>
+  <masonry-list *ngIf="viewMode==='masonryList'" [items]="posts"></masonry-list>
+  <option-list *ngIf="viewMode==='optionList'"></option-list>
+</ion-content>
+
+<ion-footer padding>
+  <ion-segment [(ngModel)]="viewMode">
+    <ion-segment-button value="cardList">
+      <ion-icon name="list"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="masonryList">
+      <ion-icon name="md-albums"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="optionList">
+      <ion-icon name="md-options"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>

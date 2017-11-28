@@ -1,0 +1,12 @@
+<ion-card class="pin">
+  <img [src]="item.image" />
+  <div *ngIf="item.description" class="post-description">
+    <small>{{ item.description }}</small>
+  </div>
+  <ion-item>
+    <small>John Doe</small>
+    <p>
+      <small>Category</small>
+    </p>
+  </ion-item>
+</ion-card>
