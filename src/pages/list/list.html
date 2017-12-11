@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="viewMode" color="light">
+      <ion-segment-button value="cardList">
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="masonryList">
+        <ion-icon name="md-albums"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="list">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <card-list *ngIf="viewMode==='cardList'" [items]="properties"></card-list>
+  <masonry-list *ngIf="viewMode==='masonryList'" [items]="posts"></masonry-list>
+  <option-list *ngIf="viewMode==='optionList'"></option-list>
+</ion-content>
+
+<ion-footer padding>
+  <ion-segment [(ngModel)]="features">
+    <ion-segment-button value="chantiers">
+      <ion-icon name="list"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="photos">
+      <ion-icon name="md-image"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="qrcode">
+        <ion-icon name="md-qr-scanner"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="localization">
+        <ion-icon name="md-globe"></ion-icon>
+      </ion-segment-button>
+  </ion-segment>
+</ion-footer>
