@@ -1,0 +1,22 @@
+{
+  "COMMON": {
+    "MENU_HEADER_PAGES": "PAGES",
+    "MENU_HEADER_FUNCTIONS": "LES FONCTIONS",
+    "MENU_HEADER_ABOUT": "AUTRE",
+    "MENU_SITES": "CHANTIERS",
+    "MENU_SETTINGS": "SETTINGS",
+    "MENU_ABOUT": "ABOUT",
+
+    "MENU_LOGOUT": "LOGOUT"
+  },
+  "LOGIN": {
+    "USERNAME": "Nom d'utilisateur",
+    "PASSWORD": "Mot de passe",
+    "LOGIN": "S'identifier"
+  },
+  "SETTINGS": {
+    "LANGUAGE": "La langue",
+    "OFFLINE": "Hors ligne",
+    "ONLINE": "En ligne"
+  }
+}

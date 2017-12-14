@@ -1,0 +1,22 @@
+{
+  "COMMON": {
+    "MENU_HEADER_PAGES": "PAGES",
+    "MENU_HEADER_FUNCTIONS": "FUNCTIONS",
+    "MENU_HEADER_ABOUT": "ABOUT",
+    "MENU_SITES": "SITES",
+    "MENU_SETTINGS": "SETTINGS",
+    "MENU_ABOUT": "ABOUT",
+
+    "MENU_LOGOUT": "LOGOUT"
+  },
+  "LOGIN": {
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "LOGIN": "Login"
+  },
+  "SETTINGS": {
+    "LANGUAGE": "Language",
+    "OFFLINE": "Offline",
+    "ONLINE": "Online"
+  }
+}
