@@ -11,28 +11,47 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@angular/common": "4.0.0",
-    "@angular/compiler": "4.0.0",
-    "@angular/compiler-cli": "4.0.0",
-    "@angular/core": "4.0.0",
-    "@angular/forms": "4.0.0",
-    "@angular/http": "4.0.0",
-    "@angular/platform-browser": "4.0.0",
-    "@angular/platform-browser-dynamic": "4.0.0",
-    "@ionic-native/core": "3.4.2",
+    "@angular/common": "4.4.3",
+    "@angular/compiler": "4.4.3",
+    "@angular/compiler-cli": "4.4.3",
+    "@angular/core": "4.4.3",
+    "@angular/forms": "4.4.3",
+    "@angular/http": "4.4.3",
+    "@angular/platform-browser": "4.4.3",
+    "@angular/platform-browser-dynamic": "4.4.3",
+    "@ionic-native/barcode-scanner": "4.4.2",
+    "@ionic-native/camera": "^4.5.2",
+    "@ionic-native/core": "4.4.2",
+    "@ionic-native/google-maps": "4.5.2",
+    "@ionic-native/network": "4.4.2",
+    "@ionic-native/qr-scanner": "^4.5.2",
     "@ionic-native/splash-screen": "3.4.2",
     "@ionic-native/status-bar": "3.4.2",
     "@ionic/storage": "2.0.1",
-    "ionic-angular": "3.0.1",
+    "@ngx-translate/core": "9.0.1",
+    "@ngx-translate/http-loader": "2.0.0",
+    "cordova-android": "^6.4.0",
+    "cordova-plugin-camera": "^3.0.0",
+    "cordova-plugin-console": "1.0.5",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-googlemaps": "~2.1.1",
+    "cordova-plugin-network-information": "~1.3.4",
+    "cordova-plugin-qrscanner": "~2.5.0",
+    "cordova-plugin-splashscreen": "~4.0.1",
+    "cordova-plugin-statusbar": "2.2.1",
+    "cordova-plugin-whitelist": "1.3.1",
+    "cordova-sqlite-storage": "~2.1.3",
+    "ionic-angular": "^3.7.0",
+    "ionic-plugin-keyboard": "~2.2.1",
     "ionicons": "3.0.0",
-    "leaflet": "^1.0.3",
-    "rxjs": "5.1.1",
-    "sw-toolbox": "3.4.0",
-    "zone.js": "^0.8.4"
+    "phonegap-plugin-barcodescanner": "~7.0.0",
+    "rxjs": "^5.4.3",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.3.0",
-    "typescript": "~2.2.1"
+    "@ionic/app-scripts": "^3.0.0",
+    "typescript": "~2.3.4"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
@@ -50,5 +69,25 @@
       "locator": "ios"
     }
   ],
-  "description": "mobops sample app"
+  "description": "mobops sample app",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "ionic-plugin-keyboard": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "phonegap-plugin-barcodescanner": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyBNPjrvs9lTSWrfL6VFCCPsunMRiwY1Ksg"
+      },
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-qrscanner": {}
+    }
+  }
 }
