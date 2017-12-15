@@ -1,12 +1,9 @@
-import { Component, Input, Renderer } from '@angular/core';
+import {Component, Input, Renderer} from '@angular/core';
 
-@Component({
-  selector: 'masonry-list',
-  templateUrl: 'masonry-list.html'
-})
+@Component({selector: 'masonry-list', templateUrl: 'masonry-list.html'})
 
 export class MasonryListComponent {
-  @Input() items: object[] = [];
+  @Input()items : object[] = [];
 
-  constructor(public renderer: Renderer) { }
+  constructor(public renderer : Renderer) {}
 }

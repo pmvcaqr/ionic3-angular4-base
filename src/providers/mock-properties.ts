@@ -11,15 +11,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict1.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict1.jpg",
+        picture: "assets/img/pict1.jpg",
+        thumbnail: "assets/img/pict1.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -34,15 +34,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict1.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict1.jpg",
+        picture: "assets/img/pict1.jpg",
+        thumbnail: "assets/img/pict1.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -57,15 +57,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict2.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict2.jpg",
+        picture: "assets/img/pict2.jpg",
+        thumbnail: "assets/img/pict2.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -80,15 +80,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict3.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict3.jpg",
+        picture: "assets/img/pict3.jpg",
+        thumbnail: "assets/img/pict3.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -103,15 +103,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict4.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict4.jpg",
+        picture: "assets/img/pict4.jpg",
+        thumbnail: "assets/img/pict4.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -126,15 +126,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict5.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict5.jpg",
+        picture: "assets/img/pict5.jpg",
+        thumbnail: "assets/img/pict5.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -149,15 +149,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict6.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict6.jpg",
+        picture: "assets/img/pict6.jpg",
+        thumbnail: "assets/img/pict6.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -172,15 +172,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict1.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict1.jpg",
+        picture: "assets/img/pict1.jpg",
+        thumbnail: "assets/img/pict1.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -195,15 +195,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict1.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict1.jpg",
+        picture: "assets/img/pict1.jpg",
+        thumbnail: "assets/img/pict1.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },
     {
@@ -218,15 +218,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict1.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict1.jpg",
+        picture: "assets/img/pict1.jpg",
+        thumbnail: "assets/img/pict1.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     },{
         id: 11,
@@ -240,15 +240,15 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "http://localhost:8100/assets/img/pict1.jpg",
-        thumbnail: "http://localhost:8100/assets/img/pict1.jpg",
+        picture: "assets/img/pict1.jpg",
+        thumbnail: "assets/img/pict1.jpg",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
             id: 1,
             name: "John Doe",
             title: "Supervisor",
-            picture: "http://localhost:8100/assets/img/avatar.png"
+            picture: "assets/img/avatar.png"
         }
     }
 ];

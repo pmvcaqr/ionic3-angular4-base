@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {SERVER_URL} from './config';
 
+import 'rxjs/add/operator/toPromise';
+
 let propertiesURL = SERVER_URL + 'properties/',
     favoritesURL = propertiesURL + 'favorites/';
 

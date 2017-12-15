@@ -1,43 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding class="transparent-header">
   <div padding>
-    <ion-row>
+    <ion-row *ngIf="message" class="help-block">
       <ion-col>
-        <img class="logo" src="assets/img/logo/logo-mailchimp.png" />
+        <p>{{message}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-list inset class="no-border">
           <ion-item>
-            <ion-label>Username</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label>{{ 'LOGIN.USERNAME' | translate }}</ion-label>
+            <ion-input type="text" [(ngModel)]="user.username"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label>Password</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-label>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
+            <ion-input *ngIf="!isShowPassword" type="password" [(ngModel)]="user.password" required></ion-input>
+            <ion-input *ngIf="isShowPassword" type="text" [(ngModel)]="user.password"></ion-input>
+            <ion-icon name="md-eye" *ngIf="isShowPassword" item-right (click)="isShowPassword = false"></ion-icon>
+            <ion-icon name="md-eye-off" *ngIf="!isShowPassword" item-right (click)="isShowPassword = true"></ion-icon>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
-    <ion-row>   
-      <ion-col>
-        <button ion-button class="login-button" (click)="login()">Login</button>
-      </ion-col>
-    </ion-row>
     <ion-row>
       <ion-col>
-        <div (click)="goToSignup()">
-          <span>Or create a new account.</span>
-        </div>
+        <button ion-button class="login-button" (click)="login()">{{ 'LOGIN.LOGIN' | translate }}</button>
       </ion-col>
     </ion-row>
   </div>

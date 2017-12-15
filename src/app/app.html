@@ -1,9 +1,20 @@
 <ion-menu [content]="content">
   <ion-content>
-    <img src="assets/img/logo.png" class="menu-logo" />
+    <ion-grid class="text-centered">
+      <ion-row center>
+        <ion-col>
+            <img src="assets/img/logo.png" class="menu-logo" />
+        </ion-col>
+      </ion-row>
+      <ion-row center>
+        <ion-col>
+          <h3 no-padding no-margin>Username</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <ion-list>
       <ion-list-header>
-        COMPONENTS
+        {{ 'COMMON.MENU_HEADER_PAGES' | translate }}
       </ion-list-header>
       <button menuClose ion-item *ngFor="let menuItem of internalMenuItems" (click)="openPage(menuItem)">
         <ion-icon item-left [name]="menuItem.icon"></ion-icon>
@@ -12,9 +23,27 @@
     </ion-list>
     <ion-list>
       <ion-list-header>
+        {{ 'COMMON.MENU_HEADER_FUNCTIONS' | translate }}
+      </ion-list-header>
+      <button menuClose ion-item *ngFor="let menuItem of functionMenuItems" (click)="openPage(menuItem)">
+        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
+        {{menuItem.title}}
+      </button>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+          {{ 'COMMON.MENU_HEADER_ABOUT' | translate }}
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let menuItem of otherMenuItems" (click)="openPage(menuItem)">
+          <ion-icon item-left [name]="menuItem.icon"></ion-icon>
+          {{menuItem.title}}
+        </button>
+      </ion-list>
+    <ion-list>
+      <ion-list-header>
         AUTHENTICATIONS
       </ion-list-header>
-      <button menuClose ion-item *ngFor="let menuItem of accountMenuItems" (click)="openPage(menuItem)">
+      <button menuClose ion-item *ngFor="let menuItem of accountMenuItems" (click)="logout()">
         <ion-icon item-left [name]="menuItem.icon"></ion-icon>
         {{menuItem.title}}
       </button>
@@ -23,4 +52,7 @@
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<!-- <connection-status-bar></connection-status-bar> -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+
+</ion-nav>

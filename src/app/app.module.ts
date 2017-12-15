@@ -1,25 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpModule, Http } from '@angular/http';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicStorageModule  } from '@ionic/storage';
 
 import { MyApp } from './app.component';
-import { SharedModule } from './shared.module'
+import { SharedModule } from './shared.module';
 
 import {WelcomePage} from '../pages/welcome/welcome';
-import {PropertyListPage} from '../pages/property-list/property-list';
-import {PropertyDetailPage} from '../pages/property-detail/property-detail';
-import {BrokerListPage} from '../pages/broker-list/broker-list';
-import {BrokerDetailPage} from '../pages/broker-detail/broker-detail';
+import {ListPage} from '../pages/list/list';
+import {DetailPage} from '../pages/detail/detail';
 import {AboutPage} from '../pages/about/about';
 import {LoginPage} from '../pages/login/login';
+import { SettingsPage } from './../pages/settings/settings';
+import { QRPage } from '../pages/qr/qr';
 
 import {PropertyService} from "../providers/property-service-mock";
-import {BrokerService} from "../providers/broker-service-mock";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Network } from '@ionic-native/network';
+import {
+  GoogleMaps
+ } from '@ionic-native/google-maps';
+import { QRScanner } from '@ionic-native/qr-scanner';
+import { Camera } from '@ionic-native/camera';
+
 import { ValidatorProvider } from '../providers/validator/validator';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -27,16 +42,25 @@ import { ValidatorProvider } from '../providers/validator/validator';
     LoginPage,
     WelcomePage,
     AboutPage,
-    PropertyListPage,
-    PropertyDetailPage,
-    BrokerListPage,
-    BrokerDetailPage
+    ListPage,
+    DetailPage,
+    SettingsPage,
+    QRPage
   ],
   imports: [
     SharedModule,
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,16 +68,20 @@ import { ValidatorProvider } from '../providers/validator/validator';
     LoginPage,
     WelcomePage,
     AboutPage,
-    PropertyListPage,
-    PropertyDetailPage,
-    BrokerListPage,
-    BrokerDetailPage
+    ListPage,
+    DetailPage,
+    SettingsPage,
+    QRPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Network,
+    GoogleMaps,
+    QRScanner,
+    Camera,
+
     PropertyService,
-    BrokerService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, ValidatorProvider
   ]
 })

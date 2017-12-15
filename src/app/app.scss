@@ -16,5 +16,13 @@
 // automatically applied to the <body> element in the app.
 .menu-logo {
   height: 80px;
-  margin: 12px 0 0 90px;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.transparent-body {
+  background: none transparent !important;
+  opacity: 0 !important;
 }

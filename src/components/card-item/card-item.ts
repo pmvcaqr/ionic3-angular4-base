@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
-import {PropertyDetailPage} from '../../pages/property-detail/property-detail';
+import {DetailPage} from '../../pages/detail/detail';
 
 /**
  * Generated class for the CardItemComponent component.
@@ -23,7 +23,7 @@ export class CardItemComponent {
   openDetail(property : any) {
     this
       .navCtrl
-      .push(PropertyDetailPage, property);
+      .push(DetailPage, property);
   }
 
   deleteItem() {}
