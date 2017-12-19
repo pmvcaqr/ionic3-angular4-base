@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Chantier N° 123 Chantier N° 123</ion-title>
+    <ion-title>Chantier {{property.title}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only *ngIf="isEditMode" (click)="saveDetail()">
         <ion-icon name="md-checkmark"></ion-icon>
@@ -11,10 +11,10 @@
       <button ion-button icon-only *ngIf="!isEditMode" (click)="editDetail()">
         <ion-icon name="md-create"></ion-icon>
       </button>
-      <button ion-button icon-only *ngIf="!isEditMode">
+      <button ion-button icon-only *ngIf="!isEditMode" (click)="presentActionSheet()">
         <ion-icon name="ios-share-outline"></ion-icon>
       </button>
-      <button ion-button icon-only *ngIf="!isEditMode">
+      <button ion-button icon-only *ngIf="!isEditMode" (click)="deleteItem()">
         <ion-icon name="ios-trash-outline"></ion-icon>
       </button>
     </ion-buttons>

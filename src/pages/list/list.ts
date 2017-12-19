@@ -6,14 +6,15 @@ import {Config, NavController, PopoverController} from 'ionic-angular';
 import {PropertyService} from '../../providers/property-service-mock';
 import {DetailPage} from '../detail/detail';
 import {FilterPopupComponent} from '../../components/filter-popup/filter-popup';
-import { MediaComponent } from '../../components/media-component/media-component';
+import {MediaComponent} from '../../components/media-component/media-component';
+import {QRComponent} from '../../components/qr-component/qr-component';
+import { MapComponent } from '../../components/map-component/map-component';
 
 declare var google;
 
 @Component({selector: 'page-list', templateUrl: 'list.html'})
 export class ListPage {
-  @ViewChild('map')mapElement : ElementRef;
-  map : any;
+  @ViewChild('mapComponent') mapComp: MapComponent;
 
   properties : Array < any > = [
     {
@@ -22,7 +23,11 @@ export class ListPage {
     }
   ];
   posts : Array < any >;
+  imgData : string;
+  scanData : string;
   searchKey : string = "";
+  isSearchByFilter = false;
+  selectedFilter : string;
   listMode : string = "cardList";
   viewMode : string = 'chantiers';
 
@@ -31,7 +36,7 @@ export class ListPage {
   }
 
   ionViewDidLoad() {
-    this.initMap();
+    // this.initMap();
   }
 
   openPropertyDetail(property : any) {
@@ -120,7 +125,55 @@ export class ListPage {
       .popoverCtrl
       .create(FilterPopupComponent);
 
+    popover.onDidDismiss(data => {
+      switch (data) {
+        case 1:
+          this
+            .service
+            .findByName('Tolbiac')
+            .then(data => {
+              this.properties = data;
+            })
+            .catch(error => alert(JSON.stringify(error)));
+          this.isSearchByFilter = true;
+          this.selectedFilter = 'Opt 1'
+          break;
+        case 2:
+          this
+            .service
+            .findByName('Pharmaster')
+            .then(data => {
+              this.properties = data;
+            })
+            .catch(error => alert(JSON.stringify(error)));
+          this.isSearchByFilter = true;
+          this.selectedFilter = 'Opt 2'
+          break;
+        case 3:
+          this
+            .service
+            .findByName('Chantier')
+            .then(data => {
+              this.properties = data;
+            })
+            .catch(error => alert(JSON.stringify(error)));
+          this.isSearchByFilter = true;
+          this.selectedFilter = 'Opt 3'
+          break;
+      }
+    })
+
     popover.present({ev: event});
+  }
+
+  removeFilter() {
+    this.isSearchByFilter = false;
+    this.searchKey = '';
+    this
+      .service
+      .findAll()
+      .then(data => this.properties = data)
+      .catch(error => alert(error));
   }
 
   initMap() {
@@ -130,63 +183,36 @@ export class ListPage {
     // .map .one(GoogleMapsEvent.MAP_READY) .then(() => {   console.log('GMap is
     // ready!');   this     .map     .addMarker({       title: 'Ionic',       icon:
     // 'blue',       animation: 'DROP',       position: {         lat: 43.0741904,
-    //     lng: -89.3809802       }     })     .then(marker => {       marker
+    // lng: -89.3809802       }     })     .then(marker => {       marker
     // .on(GoogleMapsEvent.MARKER_CLICK)         .subscribe(() => {
     // alert('clicked');         });     }); })
 
+    this.mapComp.renderMap();
+  }
+
+  onImageSelected(data : string) : void {
+    this.imgData = data;
+  }
+
+  onScanned(data : string) {
+    this.scanData = data;
+    alert(data);
+  }
+
+  doInfinite(infiniteScroll) {
     setTimeout(() => {
-      this.map = new google
-        .maps
-        .Map(this.mapElement.nativeElement, {
-          zoom: 14,
-          center: {
-            lat: 10.802037,
-            lng: 106.639689
-          }
-        });
 
-      let image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images' +
-          '/beachflag.png';
-      let centerPoint = new google
-        .maps
-        .Marker({
-          position: new google
-            .maps
-            .LatLng(10.802037, 106.639689),
-          map: this.map,
-          title: "Hello World!"
-        });
-      let point1 = new google
-        .maps
-        .Marker({
-          position: new google
-            .maps
-            .LatLng(10.801994, 106.633716),
-          map: this.map,
-          title: "Hello World!",
-          icon: image
-        });
-      let point2 = new google
-        .maps
-        .Marker({
-          position: new google
-            .maps
-            .LatLng(10.806569, 106.640310),
-          map: this.map,
-          title: "Hello World!",
-          icon: image
-        });
-      let point3 = new google
-        .maps
-        .Marker({
-          position: new google
-            .maps
-            .LatLng(10.803074, 106.644752),
-          map: this.map,
-          title: "Hello World!",
-          icon: image
+      this
+        .service
+        .findAll()
+        .then(data => {
+          this.properties = this
+            .properties
+            .concat(data);
+          console.log('Async operation has ended');
+          infiniteScroll.complete();
         })
-    }, 200);
-
+        .catch(error => alert(error));
+    }, 1000)
   }
 }

@@ -1,7 +1,7 @@
 import {ValidatorProvider} from './../../providers/validator/validator';
 import {Component} from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
-import {ActionSheetController, NavController, NavParams, ToastController} from 'ionic-angular';
+import {ActionSheetController, NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import {PropertyService} from '../../providers/property-service-mock';
 
 @Component({selector: 'page-detail', templateUrl: 'detail.html'})
@@ -49,11 +49,11 @@ export class DetailPage {
     ]
   }
 
-  constructor(public actionSheetCtrl : ActionSheetController, public navCtrl : NavController, public navParams : NavParams, public propertyService : PropertyService, public toastCtrl : ToastController, public formBuilder : FormBuilder) {
+  constructor(private alertCtrl: AlertController, public actionSheetCtrl : ActionSheetController, public navCtrl : NavController, public navParams : NavParams, public propertyService : PropertyService, public toastCtrl : ToastController, public formBuilder : FormBuilder) {
     this.property = this.navParams.data;
-    propertyService
-      .findById(this.property.id)
-      .then(property => this.property = property);
+    // propertyService
+    //   .findById(this.property.id)
+    //   .then(property => this.property = property);
   }
 
   ionViewWillLoad() {
@@ -85,5 +85,49 @@ export class DetailPage {
 
   discardChange() {
     this.isEditMode = false;
+  }
+
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Actions',
+      buttons: [{
+          text: 'Send email',
+          handler: () => {
+            console.log('Archive clicked');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
+  deleteItem() {
+    let confirm = this.alertCtrl.create({
+      title: 'Confirmation?',
+      message: 'Are you sure to remove this item?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Sure',
+          handler: () => {
+            console.log('Agree clicked');
+            this.propertyService.removeItem(this.property.id);
+            this.navCtrl.pop();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 }

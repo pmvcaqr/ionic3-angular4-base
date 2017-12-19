@@ -18,6 +18,7 @@ import {AboutPage} from '../pages/about/about';
 import {LoginPage} from '../pages/login/login';
 import { SettingsPage } from './../pages/settings/settings';
 import { QRPage } from '../pages/qr/qr';
+import { LocalizePage } from '../pages/localize/localize';
 
 import {PropertyService} from "../providers/property-service-mock";
 
@@ -31,6 +32,7 @@ import { QRScanner } from '@ionic-native/qr-scanner';
 import { Camera } from '@ionic-native/camera';
 
 import { ValidatorProvider } from '../providers/validator/validator';
+import { GoogleMapsLoader } from '../providers/gmap-loader-service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -45,7 +47,8 @@ export function createTranslateLoader(http: HttpClient) {
     ListPage,
     DetailPage,
     SettingsPage,
-    QRPage
+    QRPage,
+    LocalizePage
   ],
   imports: [
     SharedModule,
@@ -71,7 +74,8 @@ export function createTranslateLoader(http: HttpClient) {
     ListPage,
     DetailPage,
     SettingsPage,
-    QRPage
+    QRPage,
+    LocalizePage
   ],
   providers: [
     StatusBar,
@@ -82,7 +86,9 @@ export function createTranslateLoader(http: HttpClient) {
     Camera,
 
     PropertyService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}, ValidatorProvider
+    ValidatorProvider,
+    GoogleMapsLoader,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

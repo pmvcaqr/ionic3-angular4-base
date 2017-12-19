@@ -9,7 +9,8 @@ import {ListPage} from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 import {AboutPage} from '../pages/about/about';
 import {SettingsPage} from '../pages/settings/settings';
-import { QRPage } from '../pages/qr/qr';
+import {QRPage} from '../pages/qr/qr';
+import {LocalizePage} from '../pages/localize/localize';
 
 export interface MenuItem {
   title : string;
@@ -46,7 +47,7 @@ export class MyApp {
         icon: 'md-qr-scanner'
       }, {
         title: 'Localizer',
-        component: AboutPage,
+        component: LocalizePage,
         icon: 'md-globe'
       }
     ];

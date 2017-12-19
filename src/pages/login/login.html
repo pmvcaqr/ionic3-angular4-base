@@ -16,8 +16,12 @@
             <ion-label>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
             <ion-input *ngIf="!isShowPassword" type="password" [(ngModel)]="user.password" required></ion-input>
             <ion-input *ngIf="isShowPassword" type="text" [(ngModel)]="user.password"></ion-input>
-            <ion-icon name="md-eye" *ngIf="isShowPassword" item-right (click)="isShowPassword = false"></ion-icon>
-            <ion-icon name="md-eye-off" *ngIf="!isShowPassword" item-right (click)="isShowPassword = true"></ion-icon>
+            <button ion-button color="dark" icon-only item-right *ngIf="isShowPassword" (click)="isShowPassword = false">
+              <ion-icon name='md-eye'></ion-icon>
+            </button>
+            <button ion-button color="dark" icon-only item-right *ngIf="!isShowPassword" (click)="isShowPassword = true">
+              <ion-icon name='md-eye-off'></ion-icon>
+            </button>
           </ion-item>
         </ion-list>
       </ion-col>

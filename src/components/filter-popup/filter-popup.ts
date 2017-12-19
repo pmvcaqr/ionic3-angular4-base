@@ -19,4 +19,7 @@ export class FilterPopupComponent {
 
   deleteItem() {}
 
+  selectOption(option) {
+    this.viewCtrl.dismiss(option);
+  }
 }

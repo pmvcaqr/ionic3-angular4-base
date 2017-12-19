@@ -7,6 +7,5 @@
   </ion-navbar>
 </ion-header>
 <ion-content no-bounce>
-  <qr-component (scanData)="onScanned($event)"></qr-component>
-  <p *ngIf="scanResult">{{scanResult}}</p>
+  <map-component #mapComponent></map-component>
 </ion-content>

@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list *ngIf="items">
     <card-item *ngFor="let item of items" [item]="item"></card-item>
 </ion-list>
 

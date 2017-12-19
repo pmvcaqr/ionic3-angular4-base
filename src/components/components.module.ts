@@ -9,6 +9,8 @@ import { OptionListComponent } from './option-list/option-list';
 import { ConnectionStatusBarComponent } from './connection-status-bar/connection-status-bar';
 import { FilterPopupComponent } from './filter-popup/filter-popup';
 import { MediaComponent } from './media-component/media-component';
+import { QRComponent } from './qr-component/qr-component';
+import { MapComponent } from './map-component/map-component';
 
 export const components = [
   CardListComponent,
@@ -18,7 +20,9 @@ export const components = [
   OptionListComponent,
   ConnectionStatusBarComponent,
   FilterPopupComponent,
-  MediaComponent
+  MediaComponent,
+  QRComponent,
+  MapComponent
 ];
 
 @NgModule({

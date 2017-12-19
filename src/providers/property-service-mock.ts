@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import properties from './mock-properties';
+import { processRecords } from 'ionic-angular/components/virtual-scroll/virtual-util';
 
 @Injectable()
 export class PropertyService {
@@ -37,6 +38,15 @@ export class PropertyService {
       this.favorites.splice(index, 1);
     }
     return Promise.resolve();
+  }
+
+  removeItem(id) {
+    for (var i = 0; i < properties.length; i++) {
+      if (properties[i].id == id) {
+        properties.splice(i, 1);
+        break;
+      }
+    }
   }
 
 }
