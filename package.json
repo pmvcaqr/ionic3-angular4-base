@@ -24,6 +24,7 @@
     "@ionic-native/core": "4.4.2",
     "@ionic-native/google-maps": "4.5.2",
     "@ionic-native/network": "4.4.2",
+    "@ionic-native/push": "^4.4.2",
     "@ionic-native/qr-scanner": "^4.4.2",
     "@ionic-native/splash-screen": "3.4.2",
     "@ionic-native/status-bar": "3.4.2",
@@ -88,7 +89,10 @@
         "API_KEY_FOR_ANDROID": "AIzaSyBNPjrvs9lTSWrfL6VFCCPsunMRiwY1Ksg"
       },
       "cordova-sqlite-storage": {},
-      "cordova-plugin-qrscanner": {}
+      "cordova-plugin-qrscanner": {},
+      "phonegap-plugin-push": {
+        "FCM_VERSION": "11.0.1"
+      }
     }
   }
 }

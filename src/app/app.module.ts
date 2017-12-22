@@ -30,9 +30,11 @@ import {
  } from '@ionic-native/google-maps';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { Camera } from '@ionic-native/camera';
+import { Push } from '@ionic-native/push';
 
 import { ValidatorProvider } from '../providers/validator/validator';
 import { GoogleMapsLoader } from '../providers/gmap-loader-service';
+import { PushNotificationService } from './../providers/push-notification';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -84,10 +86,12 @@ export function createTranslateLoader(http: HttpClient) {
     GoogleMaps,
     QRScanner,
     Camera,
+    Push,
 
     PropertyService,
     ValidatorProvider,
     GoogleMapsLoader,
+    PushNotificationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

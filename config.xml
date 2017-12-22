@@ -89,4 +89,7 @@
     <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-camera" spec="~3.0.0" />
     <plugin name="cordova-plugin-qrscanner" spec="~2.5.0" />
+    <plugin name="phonegap-plugin-push" spec="~2.1.2">
+        <variable name="FCM_VERSION" value="11.0.1" />
+    </plugin>
 </widget>
