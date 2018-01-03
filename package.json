@@ -20,7 +20,7 @@
     "@angular/platform-browser": "4.4.3",
     "@angular/platform-browser-dynamic": "4.4.3",
     "@ionic-native/barcode-scanner": "4.4.2",
-    "@ionic-native/camera": "^4.4.2",
+    "@ionic-native/camera": "^4.5.2",
     "@ionic-native/core": "4.4.2",
     "@ionic-native/google-maps": "4.5.2",
     "@ionic-native/network": "4.4.2",
@@ -32,11 +32,12 @@
     "@ngx-translate/core": "9.0.1",
     "@ngx-translate/http-loader": "2.0.0",
     "android-versions": "^1.2.1",
-    "cordova-android": "^6.4.0",
+    "cordova-android": "~6.3.0",
     "cordova-plugin-camera": "^3.0.0",
     "cordova-plugin-console": "1.0.5",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-googlemaps": "~2.1.1",
+    "cordova-plugin-multidex": "~0.1.2",
     "cordova-plugin-network-information": "~1.3.4",
     "cordova-plugin-qrscanner": "~2.5.0",
     "cordova-plugin-splashscreen": "~4.0.1",
@@ -46,7 +47,7 @@
     "ionic-angular": "^3.7.0",
     "ionic-plugin-keyboard": "~2.2.1",
     "ionicons": "3.0.0",
-    "phonegap-plugin-barcodescanner": "~7.0.0",
+    "phonegap-plugin-push": "~2.1.2",
     "rxjs": "^5.4.3",
     "sw-toolbox": "3.6.0",
     "zone.js": "^0.8.18"
@@ -83,7 +84,6 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "phonegap-plugin-barcodescanner": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyBNPjrvs9lTSWrfL6VFCCPsunMRiwY1Ksg"
@@ -91,8 +91,11 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-qrscanner": {},
       "phonegap-plugin-push": {
-        "FCM_VERSION": "11.0.1"
-      }
+        "FCM_VERSION": "11.0.1",
+        "SENDER_ID": "889062503461"
+      },
+      "cordova-plugin-multidex": {},
+      "cordova-plugin-camera": {}
     }
   }
 }

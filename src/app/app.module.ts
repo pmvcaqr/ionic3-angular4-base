@@ -35,6 +35,7 @@ import { Push } from '@ionic-native/push';
 import { ValidatorProvider } from '../providers/validator/validator';
 import { GoogleMapsLoader } from '../providers/gmap-loader-service';
 import { PushNotificationService } from './../providers/push-notification';
+import { AuthService } from '../providers/auth-service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -88,6 +89,7 @@ export function createTranslateLoader(http: HttpClient) {
     Camera,
     Push,
 
+    AuthService,
     PropertyService,
     ValidatorProvider,
     GoogleMapsLoader,

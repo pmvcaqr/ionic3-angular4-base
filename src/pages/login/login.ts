@@ -1,9 +1,12 @@
 import {User} from './../../models/user';
 import {Component} from '@angular/core';
+import {Storage} from '@ionic/storage';
 
 import {NavController, MenuController} from 'ionic-angular';
 
 import {ListPage} from '../list/list';
+import {PushNotificationService} from './../../providers/push-notification';
+import {AuthService} from '../../providers/auth-service';
 
 @Component({selector: 'page-login', templateUrl: 'login.html'})
 export class LoginPage {
@@ -11,7 +14,7 @@ export class LoginPage {
   message : string = '';
   isShowPassword = false;
 
-  constructor(public navCtrl : NavController, private menuCtrl : MenuController) {}
+  constructor(public navCtrl : NavController, private menuCtrl : MenuController, private pushService : PushNotificationService, private authService : AuthService, private storage : Storage) {}
 
   ionViewDidEnter() {
     this
@@ -29,14 +32,29 @@ export class LoginPage {
     }
   }
 
+  // TODO: real Login service with API and usertoken for Push Notification
   login() {
     if (this.validateLoginInfo()) {
+
       this
-        .navCtrl
-        .setRoot(ListPage);
-      this
-      .menuCtrl
-      .enable(true);
+        .authService
+        .login()
+        .then((rs : any) => {
+          this
+            .storage
+            .set('userToken', rs.access_token);
+
+          this
+            .navCtrl
+            .setRoot(ListPage);
+          this
+            .menuCtrl
+            .enable(true);
+
+          this
+            .pushService
+            .init();
+        })
     }
   }
 }
