@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Chantier {{property.title}}</ion-title>
+    <ion-title>Site Detail</ion-title>
     <ion-buttons end>
       <button ion-button icon-only *ngIf="isEditMode" (click)="saveDetail()">
         <ion-icon name="md-checkmark"></ion-icon>
@@ -17,13 +17,16 @@
       <button ion-button icon-only *ngIf="!isEditMode" (click)="deleteItem()">
         <ion-icon name="ios-trash-outline"></ion-icon>
       </button>
+      <div *ngIf="!isEditMode">
+        <connection-status-indicator></connection-status-indicator>
+      </div>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-card *ngIf="property.id">
-    <img src="{{property.picture}}" />
+    <img src="{{property.picture}}" onerror="this.src='assets/img/no-image.png'"/>
     <ion-card-content>
       <h2 class="card-title">{{property.title}}</h2>
       <p>{{property.address}}, {{property.city}} {{property.state}}</p>

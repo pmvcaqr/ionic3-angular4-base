@@ -5,10 +5,17 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-buttons end>
+      <connection-status-indicator></connection-status-indicator>
+    </ion-buttons>
+    <ion-title *ngIf="viewMode=='chantiers'">Chantiers</ion-title>
     <ion-title *ngIf="viewMode=='photos'">Photos</ion-title>
     <ion-title *ngIf="viewMode=='qrcode'">QR Scanner</ion-title>
     <ion-title *ngIf="viewMode=='map'">Localize chantiers</ion-title>
-    <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" *ngIf="(viewMode=='chantiers') && !isSearchByFilter"></ion-searchbar>
+
+  </ion-navbar>
+  <ion-toolbar class="search-filter-block" *ngIf="(viewMode=='chantiers')">
+    <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" *ngIf="!isSearchByFilter"></ion-searchbar>
     <ion-item *ngIf="isSearchByFilter">
       <span>List is filtered by {{selectedFilter}}</span>
       <button ion-button icon-only clear item-end (click)="removeFilter()">
@@ -17,21 +24,55 @@
     </ion-item>
 
     <ion-buttons right *ngIf="viewMode=='chantiers'">
-      <button ion-button icon-only (click)="showFilter($event)">
-        <ion-icon name="md-options"></ion-icon>
+      <button ion-button icon-only>
+        <ion-icon name="md-options" color="dark"></ion-icon>
+
       </button>
+
     </ion-buttons>
-  </ion-navbar>
-  <ion-toolbar>
-    <ion-segment [(ngModel)]="listMode" color="light" *ngIf="viewMode =='chantiers'">
+    <select #selectElem class="select-old-style" (change)="filterBy(selectElem.value)">
+      <option value="0" selected hidden disabled></option>
+      <option value="volvo" value="1">Tous les chantiers</option>
+      <option value="saab" value="2">Mes chantiers</option>
+      <option value="mercedes" value="3">Les chantiers de mon UO</option>
+    </select>
+
+    <!-- <ion-select #filterSelector [(ngModel)]="selectedFilter" [hidden]="true" interface="action-sheet">
+      <ion-option value="1" (ionSelect)="filterBy(1)">Tous les chantiers</ion-option>
+      <ion-option value="2" (ionSelect)="filterBy(2)">Mes chantiers</ion-option>
+      <ion-option value="3" (ionSelect)=filterBy(3)>Les chantiers de mon UO</ion-option>
+    </ion-select> -->
+  </ion-toolbar>
+  <ion-grid class="button-group">
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-only color="light" [ngClass]="{'selected' : listMode == 'cardList'}" (click)="listMode = 'cardList'">
+          <ion-icon name="list"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-only color="light" [ngClass]="{'selected' : listMode == 'masonryList'}" (click)="listMode = 'masonryList'">
+          <ion-icon name="md-apps"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-toolbar class="no-background">
+    
+    <ion-segment [(ngModel)]="listMode" color="danger" *ngIf="viewMode=='chantiers'">
       <ion-segment-button value="cardList">
-        <ion-icon name="list"></ion-icon>
+          <button ion-button icon-only (click)="showFilter($event)">
+              <ion-icon name="list"></ion-icon>
+            </button>
+        
       </ion-segment-button>
       <ion-segment-button value="masonryList">
-        <ion-icon name="md-apps"></ion-icon>
+          <button ion-button icon-only (click)="showFilter($event)">
+              <ion-icon name="md-apps"></ion-icon>
+            </button>
       </ion-segment-button>
     </ion-segment>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content [hidden]="viewMode !='map'" class="list">

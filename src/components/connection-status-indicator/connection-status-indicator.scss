@@ -1,0 +1,14 @@
+connection-status-indicator {
+  div {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background: grey;
+    &.online {
+      background-color: green;
+    }
+    &.offline {
+      background-color: red;
+    }
+  }
+}

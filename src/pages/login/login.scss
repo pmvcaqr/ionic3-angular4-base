@@ -1,7 +1,7 @@
 page-login {
   // Fullscreen centered image background
   ion-content {
-    background-image: url(../assets/img/pict5.jpg);
+    background-image: url(../assets/img/login-bg.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,22 +41,46 @@ page-login {
     // border-radius: 30px !important;
     padding-left: 10px !important;
     margin-bottom: 10px;
-    background-color: #f6f6f6;
-    opacity: 0.7;
+    background-color: transparent !important;
+    opacity: 1;
     font-size: 0.9em;
+    ion-label {
+      &.label,
+      .label-md {
+        color: white !important;
+        opacity: 0.8;
+        font-weight: lighter;
+      }
+    }
+    ion-input {
+      color: white;
+    }
+    &.item-input {
+      &.ng-valid {
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+        .item-inner {
+          border-bottom-color: transparent !important;
+          box-shadow: none !important;
+        }
+      }
+    }
   }
   ion-list {
     margin: 0;
+
+    .wrapper {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
   }
   .login-button {
-    width: 100%;
-    // border-radius: 30px;
+    width: 100%; // border-radius: 30px;
     font-size: 0.9em;
-    // border: 1px solid #fff;
-    background-color: #39acdc;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-weight: bold;
   }
-
   .help-block {
-    color: red;
+    background-color: #cc0000;
+    color: white;
   }
 }

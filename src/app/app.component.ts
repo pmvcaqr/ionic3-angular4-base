@@ -23,6 +23,7 @@ export class MyApp {
   @ViewChild(Nav)nav : Nav;
 
   rootPage : any = LoginPage;
+  activePage : any;
 
   internalMenuItems : Array < MenuItem >;
   functionMenuItems : Array < MenuItem >;
@@ -108,10 +109,17 @@ export class MyApp {
         this
           .splashScreen
           .hide();
+
+        this.activePage = this.internalMenuItems[0];
       });
   }
 
+  getActiveMenu(menuItem) {
+    return menuItem == this.activePage;
+  }
+
   openPage(page) {
+    this.activePage = page;
     this
       .nav
       .setRoot(page.component);

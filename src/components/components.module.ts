@@ -7,6 +7,7 @@ import { MasonryListComponent } from './masonry-list/masonry-list';
 import { MasonryItemComponent } from './masonry-item/masonry-item';
 import { OptionListComponent } from './option-list/option-list';
 import { ConnectionStatusBarComponent } from './connection-status-bar/connection-status-bar';
+import { ConnectionStatusIndicatorComponent } from './connection-status-indicator/connection-status-indicator';
 import { FilterPopupComponent } from './filter-popup/filter-popup';
 import { MediaComponent } from './media-component/media-component';
 import { QRComponent } from './qr-component/qr-component';
@@ -19,6 +20,7 @@ export const components = [
   MasonryItemComponent,
   OptionListComponent,
   ConnectionStatusBarComponent,
+  ConnectionStatusIndicatorComponent,
   FilterPopupComponent,
   MediaComponent,
   QRComponent,

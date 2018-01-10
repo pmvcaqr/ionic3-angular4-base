@@ -1,12 +1,14 @@
 <ion-item-sliding *ngIf="item">
   <button ion-item (click)="openDetail(item)">
     <ion-thumbnail item-left>
-      <img src="{{item.thumbnail}}" />
+      <img src="{{item.thumbnail}}" onerror="this.src='assets/img/no-image.png'" />
     </ion-thumbnail>
     <h2>{{item.title}}</h2>
-    <p>{{item.city}}, {{item.state}} ∙ {{ item.price }}</p>
+    <p>{{item.city}}</p>
   </button>
-  <ion-item-options>
-    <button danger (click)="deleteItem()">Delete</button>
+  <ion-item-options side="right">
+    <button ion-button color="danger" large (click)="deleteItem()">
+      <ion-icon name="md-trash"></ion-icon>
+    </button>
   </ion-item-options>
 </ion-item-sliding>

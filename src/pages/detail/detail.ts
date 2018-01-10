@@ -1,11 +1,13 @@
 import {ValidatorProvider} from './../../providers/validator/validator';
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {ActionSheetController, NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import {PropertyService} from '../../providers/property-service-mock';
+import { ConnectionStatusIndicatorComponent } from '../../components/connection-status-indicator/connection-status-indicator';
 
 @Component({selector: 'page-detail', templateUrl: 'detail.html'})
 export class DetailPage {
+  @ViewChild(ConnectionStatusIndicatorComponent) jokeViewChild: ConnectionStatusIndicatorComponent;
   property : any;
   isEditMode = false;
   data = {

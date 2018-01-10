@@ -34,8 +34,8 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "assets/img/pict1.jpg",
-        thumbnail: "assets/img/pict1.jpg",
+        picture: "",
+        thumbnail: "",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
@@ -48,7 +48,7 @@ let properties: Array<any> = [
     {
         id: 3,
         address: "2nd NTMK",
-        city: "HCM",
+        city: "",
         state: "VN",
         zip: "084",
         title: "PHARMASTER",
@@ -80,8 +80,8 @@ let properties: Array<any> = [
         posts: 2,
         long: -71.11095,
         lat: 42.35663,
-        picture: "assets/img/pict3.jpg",
-        thumbnail: "assets/img/pict3.jpg",
+        picture: "",
+        thumbnail: "",
         tags: "site",
         description: "Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet...Lorem ipsum dolor sit amet",
         manager: {
@@ -117,7 +117,7 @@ let properties: Array<any> = [
     {
         id: 6,
         address: "5th NTMK",
-        city: "HCM",
+        city: "",
         state: "VN",
         zip: "084",
         title: "Chantier Boufrit",

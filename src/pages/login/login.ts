@@ -2,7 +2,7 @@ import {User} from './../../models/user';
 import {Component} from '@angular/core';
 import {Storage} from '@ionic/storage';
 
-import {NavController, MenuController} from 'ionic-angular';
+import {NavController, MenuController, LoadingController} from 'ionic-angular';
 
 import {ListPage} from '../list/list';
 import {PushNotificationService} from './../../providers/push-notification';
@@ -14,7 +14,7 @@ export class LoginPage {
   message : string = '';
   isShowPassword = false;
 
-  constructor(public navCtrl : NavController, private menuCtrl : MenuController, private pushService : PushNotificationService, private authService : AuthService, private storage : Storage) {}
+  constructor(public navCtrl : NavController, private menuCtrl : MenuController, private loadingCtrl : LoadingController, private pushService : PushNotificationService, private authService : AuthService, private storage : Storage) {}
 
   ionViewDidEnter() {
     this
@@ -35,26 +35,26 @@ export class LoginPage {
   // TODO: real Login service with API and usertoken for Push Notification
   login() {
     if (this.validateLoginInfo()) {
+      let loading = this
+        .loadingCtrl
+        .create({content: 'Please wait...'});
+
+      // loading.present(); this   .authService   .login()   .then((rs : any) => {
+      // this       .storage       .set('userToken', rs.access_token);     this
+      // .navCtrl       .setRoot(ListPage);     this       .menuCtrl
+      // .enable(true);     this       .pushService       .init();
+      // loading.dismiss();   })   .catch(err => {     this       .storage
+      // .set('userToken', 0);     this       .navCtrl       .setRoot(ListPage);
+      // this       .menuCtrl       .enable(true);     // this     //   .pushService
+      //   //   .init();     loading.dismiss();   })
 
       this
-        .authService
-        .login()
-        .then((rs : any) => {
-          this
-            .storage
-            .set('userToken', rs.access_token);
+        .navCtrl
+        .setRoot(ListPage);
+      this
+        .menuCtrl
+        .enable(true);
 
-          this
-            .navCtrl
-            .setRoot(ListPage);
-          this
-            .menuCtrl
-            .enable(true);
-
-          this
-            .pushService
-            .init();
-        })
     }
   }
 }

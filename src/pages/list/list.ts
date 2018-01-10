@@ -8,13 +8,15 @@ import {DetailPage} from '../detail/detail';
 import {FilterPopupComponent} from '../../components/filter-popup/filter-popup';
 import {MediaComponent} from '../../components/media-component/media-component';
 import {QRComponent} from '../../components/qr-component/qr-component';
-import { MapComponent } from '../../components/map-component/map-component';
+import {MapComponent} from '../../components/map-component/map-component';
+import {Select} from 'ionic-angular/components/select/select';
 
 declare var google;
 
 @Component({selector: 'page-list', templateUrl: 'list.html'})
 export class ListPage {
-  @ViewChild('mapComponent') mapComp: MapComponent;
+  @ViewChild('mapComponent')mapComp : MapComponent;
+  @ViewChild('filterSelector')filterSelector : Select;
 
   properties : Array < any > = [
     {
@@ -121,53 +123,69 @@ export class ListPage {
   }
 
   showFilter(event) {
-    let popover = this
-      .popoverCtrl
-      .create(FilterPopupComponent);
+    this
+      .filterSelector
+      .open();
 
-    popover.onDidDismiss(data => {
-      switch (data) {
-        case 1:
-          this
-            .service
-            .findByName('Tolbiac')
-            .then(data => {
-              this.properties = data;
-            })
-            .catch(error => alert(JSON.stringify(error)));
-          this.isSearchByFilter = true;
-          this.selectedFilter = 'Opt 1'
-          break;
-        case 2:
-          this
-            .service
-            .findByName('Pharmaster')
-            .then(data => {
-              this.properties = data;
-            })
-            .catch(error => alert(JSON.stringify(error)));
-          this.isSearchByFilter = true;
-          this.selectedFilter = 'Opt 2'
-          break;
-        case 3:
-          this
-            .service
-            .findByName('Chantier')
-            .then(data => {
-              this.properties = data;
-            })
-            .catch(error => alert(JSON.stringify(error)));
-          this.isSearchByFilter = true;
-          this.selectedFilter = 'Opt 3'
-          break;
-      }
-    })
+    // let popover = this   .popoverCtrl   .create(FilterPopupComponent);
+    // popover.onDidDismiss(data => {   switch (data) {     case 1:       this
+    //   .service         .findByName('Tolbiac')         .then(data => {
+    // this.properties = data;         })         .catch(error =>
+    // alert(JSON.stringify(error)));       this.isSearchByFilter = true;
+    // this.selectedFilter = 'Opt 1'       break;     case 2:       this
+    // .service         .findByName('Pharmaster')         .then(data => {
+    // this.properties = data;         })         .catch(error =>
+    // alert(JSON.stringify(error)));       this.isSearchByFilter = true;
+    // this.selectedFilter = 'Opt 2'       break;     case 3:       this
+    // .service         .findByName('Chantier')         .then(data => {
+    // this.properties = data;         })         .catch(error =>
+    // alert(JSON.stringify(error)));       this.isSearchByFilter = true;
+    // this.selectedFilter = 'Opt 3'       break;   } }) popover.present({ev:
+    // event});
 
-    popover.present({ev: event});
+  }
+
+  filterBy(type) {
+    switch (type) {
+      case '1':
+        this
+          .service
+          .findByName('Tolbiac')
+          .then(data => {
+            this.properties = data;
+          })
+          .catch(error => alert(JSON.stringify(error)));
+        this.isSearchByFilter = true;
+        this.selectedFilter = 'Opt 1'
+        break;
+      case '2':
+        this
+          .service
+          .findByName('Pharmaster')
+          .then(data => {
+            this.properties = data;
+          })
+          .catch(error => alert(JSON.stringify(error)));
+        this.isSearchByFilter = true;
+        this.selectedFilter = 'Opt 2'
+        break;
+      case '3':
+        this
+          .service
+          .findByName('Chantier')
+          .then(data => {
+            this.properties = data;
+          })
+          .catch(error => alert(JSON.stringify(error)));
+        this.isSearchByFilter = true;
+        this.selectedFilter = 'Opt 3'
+        break;
+    }
   }
 
   removeFilter() {
     this.isSearchByFilter = false;
+    this.selectedFilter = null;
     this.searchKey = '';
     this
       .service
@@ -187,7 +205,9 @@ export class ListPage {
     // .on(GoogleMapsEvent.MARKER_CLICK)         .subscribe(() => {
     // alert('clicked');         });     }); })
 
-    this.mapComp.renderMap();
+    this
+      .mapComp
+      .renderMap();
   }
 
   onImageSelected(data : string) : void {

@@ -3,7 +3,7 @@
     <ion-grid class="text-centered">
       <ion-row center>
         <ion-col>
-            <img src="assets/img/logo.png" class="menu-logo" />
+          <img src="assets/img/logo.png" class="menu-logo" />
         </ion-col>
       </ion-row>
       <ion-row center>
@@ -12,38 +12,30 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <ion-list>
-      <ion-list-header>
-        {{ 'COMMON.MENU_HEADER_PAGES' | translate }}
-      </ion-list-header>
-      <button menuClose ion-item *ngFor="let menuItem of internalMenuItems" (click)="openPage(menuItem)">
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let menuItem of internalMenuItems" (click)="openPage(menuItem)" [class.active-menu]="getActiveMenu(menuItem)" detail-none>
+        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
+        {{menuItem.title}}
+        <ion-badge item-end>10+</ion-badge>
+      </button>
+    </ion-list>
+    <div class="separator-line"></div>
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let menuItem of functionMenuItems" (click)="openPage(menuItem)" [class.active-menu]="getActiveMenu(menuItem)" detail-none>
         <ion-icon item-left [name]="menuItem.icon"></ion-icon>
         {{menuItem.title}}
       </button>
     </ion-list>
-    <ion-list>
-      <ion-list-header>
-        {{ 'COMMON.MENU_HEADER_FUNCTIONS' | translate }}
-      </ion-list-header>
-      <button menuClose ion-item *ngFor="let menuItem of functionMenuItems" (click)="openPage(menuItem)">
+    <div class="separator-line"></div>
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let menuItem of otherMenuItems" (click)="openPage(menuItem)" [class.active-menu]="getActiveMenu(menuItem)" detail-none>
         <ion-icon item-left [name]="menuItem.icon"></ion-icon>
         {{menuItem.title}}
       </button>
     </ion-list>
-    <ion-list>
-        <ion-list-header>
-          {{ 'COMMON.MENU_HEADER_ABOUT' | translate }}
-        </ion-list-header>
-        <button menuClose ion-item *ngFor="let menuItem of otherMenuItems" (click)="openPage(menuItem)">
-          <ion-icon item-left [name]="menuItem.icon"></ion-icon>
-          {{menuItem.title}}
-        </button>
-      </ion-list>
-    <ion-list>
-      <ion-list-header>
-        AUTHENTICATIONS
-      </ion-list-header>
-      <button menuClose ion-item *ngFor="let menuItem of accountMenuItems" (click)="logout()">
+    <div class="separator-line"></div>
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let menuItem of accountMenuItems" (click)="logout()" detail-none>
         <ion-icon item-left [name]="menuItem.icon"></ion-icon>
         {{menuItem.title}}
       </button>
