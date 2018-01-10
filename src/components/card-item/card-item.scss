@@ -1,15 +1,23 @@
 card-item {
-    .item-wrapper {
-        h2 {
-            word-wrap: break-word;
-            white-space: normal;
-        }
+  .item-wrapper {
+    h2 {
+      word-wrap: break-word;
+      white-space: normal;
     }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100px;
+      right: 0;
+      border-bottom: 1px solid lightgrey;
+    }
+  }
 
-    ion-icon {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        padding-bottom: 0 !important;
-        font-size: 1.8em;
-    }
+  ion-icon {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-bottom: 0 !important;
+    font-size: 1.8em;
+  }
 }

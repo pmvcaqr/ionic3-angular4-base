@@ -4,11 +4,9 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-buttons end>
-      <button ion-button icon-only (click)="popupStatus()">
-        <connection-status-indicator></connection-status-indicator>
-      </button>
+      <connection-status-indicator></connection-status-indicator>
     </ion-buttons>
-    <ion-title>About</ion-title>
+    <ion-title>{{ 'COMMON.MENU_ABOUT' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 

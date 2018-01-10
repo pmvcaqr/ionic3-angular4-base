@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import {ValidatorProvider} from './../../providers/validator/validator';
 import {Component, ViewChild} from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
@@ -51,7 +52,7 @@ export class DetailPage {
     ]
   }
 
-  constructor(private alertCtrl: AlertController, public actionSheetCtrl : ActionSheetController, public navCtrl : NavController, public navParams : NavParams, public propertyService : PropertyService, public toastCtrl : ToastController, public formBuilder : FormBuilder) {
+  constructor(private alertCtrl: AlertController, public actionSheetCtrl : ActionSheetController, public navCtrl : NavController, public navParams : NavParams, public propertyService : PropertyService, public toastCtrl : ToastController, public formBuilder : FormBuilder, private translate: TranslateService) {
     this.property = this.navParams.data;
     // propertyService
     //   .findById(this.property.id)
@@ -111,17 +112,17 @@ export class DetailPage {
 
   deleteItem() {
     let confirm = this.alertCtrl.create({
-      title: 'Confirmation?',
-      message: 'Are you sure to remove this item?',
+      title: this.translate.instant('COMMON.CONFIRMATION_TITLE'),
+      message: this.translate.instant('COMMON.DELETE_SITE_MESSAGE'),
       buttons: [
         {
-          text: 'Cancel',
+          text: this.translate.instant('COMMON.CANCEL'),
           handler: () => {
             console.log('Disagree clicked');
           }
         },
         {
-          text: 'Sure',
+          text: this.translate.instant('COMMON.SURE'),
           handler: () => {
             console.log('Agree clicked');
             this.propertyService.removeItem(this.property.id);

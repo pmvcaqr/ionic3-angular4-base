@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, ApplicationRef } from '@angular/core';
 import {Platform, ToastController} from 'ionic-angular';
 import {Network} from '@ionic-native/network';
@@ -19,7 +20,7 @@ export class ConnectionStatusIndicatorComponent {
   isOnlineObservable: Subject<boolean> = new Subject<boolean>();
   message: string;
 
-  constructor(private network : Network, public platform : Platform, private appRef : ApplicationRef, private toastCtrl : ToastController) {
+  constructor(private network : Network, public platform : Platform, private appRef : ApplicationRef, private toastCtrl : ToastController, private translate: TranslateService) {
     console.log('Hello ConnectionStatusIndicatorComponent Component');
   }
 
@@ -45,7 +46,7 @@ export class ConnectionStatusIndicatorComponent {
 
     this.isOnlineObservable.subscribe((value) => {
       this.isOnline = value;
-      this.message = value ? 'You are online' : 'You are offline';
+      this.message = value ? this.translate.instant('COMMON.NETWORK_ONLINE_MESSAGE') : this.translate.instant('COMMON.NETWORK_OFFLINE_MESSAGE');
     });
 
     this.isOnlineObservable.next(this.network.type != 'none');

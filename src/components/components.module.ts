@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 
@@ -29,7 +30,7 @@ export const components = [
 
 @NgModule({
   declarations: [components],
-  imports: [IonicModule],
+  imports: [IonicModule, TranslateModule],
   exports: [components],
   entryComponents: [FilterPopupComponent]
 })

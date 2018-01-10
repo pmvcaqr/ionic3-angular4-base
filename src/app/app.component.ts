@@ -35,7 +35,7 @@ export class MyApp {
 
     this.internalMenuItems = [
       {
-        title: 'Chantiers',
+        title: 'COMMON.MENU_SITES',
         component: ListPage,
         icon: 'md-list'
       }
@@ -43,11 +43,11 @@ export class MyApp {
 
     this.functionMenuItems = [
       {
-        title: 'Scanner QR',
+        title: this.translate.instant('COMMON.MENU_SCANNER'),
         component: QRPage,
         icon: 'md-qr-scanner'
       }, {
-        title: 'Localizer',
+        title: this.translate.instant('COMMON.MENU_LOCATION'),
         component: LocalizePage,
         icon: 'md-globe'
       }
@@ -55,11 +55,11 @@ export class MyApp {
 
     this.otherMenuItems = [
       {
-        title: 'Settings',
+        title:  this.translate.instant('COMMON.MENU_SETTINGS'),
         component: SettingsPage,
         icon: 'md-settings'
       }, {
-        title: 'About',
+        title:  this.translate.instant('COMMON.MENU_ABOUT'),
         component: AboutPage,
         icon: 'md-information-circle'
       }
@@ -67,7 +67,7 @@ export class MyApp {
 
     this.accountMenuItems = [
       {
-        title: 'Logout',
+        title:  this.translate.instant('COMMON.MENU_LOGOUT'),
         component: AboutPage,
         icon: 'md-log-out'
       }
@@ -110,8 +110,16 @@ export class MyApp {
           .splashScreen
           .hide();
 
+        this.prepareMenuItem();
+
         this.activePage = this.internalMenuItems[0];
       });
+  }
+
+  private prepareMenuItem() {
+    this.translate.get('COMMON.MENU_SITES').subscribe(value => {
+      this.internalMenuItems[0].title = value;
+    });
   }
 
   getActiveMenu(menuItem) {

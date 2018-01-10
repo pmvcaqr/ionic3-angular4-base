@@ -8,14 +8,13 @@
     <ion-buttons end>
       <connection-status-indicator></connection-status-indicator>
     </ion-buttons>
-    <ion-title *ngIf="viewMode=='chantiers'">Chantiers</ion-title>
-    <ion-title *ngIf="viewMode=='photos'">Photos</ion-title>
-    <ion-title *ngIf="viewMode=='qrcode'">QR Scanner</ion-title>
-    <ion-title *ngIf="viewMode=='map'">Localize chantiers</ion-title>
-
+    <ion-title *ngIf="viewMode=='chantiers'">{{'COMMON.MENU_SITES' | translate}}</ion-title>
+    <ion-title *ngIf="viewMode=='photos'">{{'COMMON.MENU_PHOTOS' | translate}}</ion-title>
+    <ion-title *ngIf="viewMode=='qrcode'">{{'COMMON.MENU_SCANNER' | translate}}</ion-title>
+    <ion-title *ngIf="viewMode=='map'">{{'COMMON.MENU_LOCATION' | translate}}</ion-title>
   </ion-navbar>
   <ion-toolbar class="search-filter-block" *ngIf="(viewMode=='chantiers')">
-    <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" *ngIf="!isSearchByFilter"></ion-searchbar>
+    <ion-searchbar placeholder="{{'COMMON.SEARCH' | translate}}" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" *ngIf="!isSearchByFilter"></ion-searchbar>
     <ion-item *ngIf="isSearchByFilter">
       <span>List is filtered by {{selectedFilter}}</span>
       <button ion-button icon-only clear item-end (click)="removeFilter()">
@@ -26,15 +25,14 @@
     <ion-buttons right *ngIf="viewMode=='chantiers'">
       <button ion-button icon-only>
         <ion-icon name="md-options" color="dark"></ion-icon>
-
       </button>
 
     </ion-buttons>
     <select #selectElem class="select-old-style" (change)="filterBy(selectElem.value)">
       <option value="0" selected hidden disabled></option>
-      <option value="volvo" value="1">Tous les chantiers</option>
-      <option value="saab" value="2">Mes chantiers</option>
-      <option value="mercedes" value="3">Les chantiers de mon UO</option>
+      <option value="volvo" value="1">{{ 'SITES.FILTER_BY_ALL' | translate }}</option>
+      <option value="saab" value="2">{{ 'SITES.FILTER_BY_MINE' | translate }}</option>
+      <option value="mercedes" value="3">{{ 'SITES.FILTER_BY_UO' | translate }}</option>
     </select>
 
     <!-- <ion-select #filterSelector [(ngModel)]="selectedFilter" [hidden]="true" interface="action-sheet">

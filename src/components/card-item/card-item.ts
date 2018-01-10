@@ -3,6 +3,7 @@ import {NavController, AlertController} from 'ionic-angular';
 
 import {DetailPage} from '../../pages/detail/detail';
 import {PropertyService} from '../../providers/property-service-mock';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the CardItemComponent component.
@@ -16,7 +17,7 @@ export class CardItemComponent {
 
   text : string;
 
-  constructor(public navCtrl : NavController, private alertCtrl: AlertController, private propertyService: PropertyService) {
+  constructor(public navCtrl : NavController, private alertCtrl: AlertController, private propertyService: PropertyService, private translate: TranslateService) {
     console.log('Hello CardItemComponent Component');
     this.text = 'Hello World';
   }
@@ -31,16 +32,16 @@ export class CardItemComponent {
     let confirm = this
       .alertCtrl
       .create({
-        title: 'Confirmation?',
-        message: 'Are you sure to remove this item?',
+        title: this.translate.instant('COMMON.CONFIRMATION_TITLE'),
+        message: this.translate.instant('COMMON.DELETE_SITE_MESSAGE'),
         buttons: [
           {
-            text: 'Cancel',
+            text: this.translate.instant('COMMON.CANCEL'),
             handler: () => {
               console.log('Disagree clicked');
             }
           }, {
-            text: 'Sure',
+            text: this.translate.instant('COMMON.SURE'),
             handler: () => {
               console.log('Agree clicked');
               this

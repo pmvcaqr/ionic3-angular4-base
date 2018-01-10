@@ -3,20 +3,52 @@
     "MENU_HEADER_PAGES": "PAGES",
     "MENU_HEADER_FUNCTIONS": "FUNCTIONS",
     "MENU_HEADER_ABOUT": "ABOUT",
-    "MENU_SITES": "SITES",
-    "MENU_SETTINGS": "SETTINGS",
-    "MENU_ABOUT": "ABOUT",
+    "MENU_SITES": "Sites",
+    "MENU_SCANNER": "Scanner QR",
+    "MENU_LOCATION": "Localizer",
+    "MENU_SETTINGS": "Settings",
+    "MENU_ABOUT": "About",
+    "MENU_PHOTOS": "Photos",
+    "MENU_LOGOUT": "Logout",
 
-    "MENU_LOGOUT": "LOGOUT"
+    "TITLE_SITE_DETAIL": "Site Detail",
+
+    "SEARCH": "Search",
+    "CANCEL": "Cancel",
+    "SURE": "Sure",
+    "CONFIRMATION_TITLE": "Confirmation",
+    "DELETE_SITE_MESSAGE": "Are you sure to remove this site?",
+    "NETWORK_ONLINE_MESSAGE": "You are online",
+    "NETWORK_OFFLINE_MESSAGE": "You are offline"
   },
   "LOGIN": {
     "USERNAME": "Username",
     "PASSWORD": "Password",
     "LOGIN": "Login"
   },
+  "MEDIA": {
+    "CAMERA": "Camera",
+    "GALLERY": "Gallery"
+  },
+  "SITES": {
+    "FILTER_BY_ALL": "All construction sites",
+    "FILTER_BY_MINE": "My construction sites",
+    "FILTER_BY_UO": "Sites of mine UO",
+
+    "CLICK_TO_SCAN": "Click the button to start QR Scan",
+    "SCAN_BUTTON": "Scan"
+  },
+  "SITE_DETAIL": {
+    "USERNAME": "Username",
+    "EMAIL": "Email",
+    "START_TIME": "Start time",
+    "LANGUAGE": "Language",
+    "NOTIFICATION": "Notification"
+  },
   "SETTINGS": {
     "LANGUAGE": "Language",
     "OFFLINE": "Offline",
-    "ONLINE": "Online"
+    "ONLINE": "Online",
+    "RESET_STORAGE": "Reset Storage"
   }
 }

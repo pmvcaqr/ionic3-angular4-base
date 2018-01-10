@@ -3,20 +3,52 @@
     "MENU_HEADER_PAGES": "PAGES",
     "MENU_HEADER_FUNCTIONS": "LES FONCTIONS",
     "MENU_HEADER_ABOUT": "AUTRE",
-    "MENU_SITES": "CHANTIERS",
-    "MENU_SETTINGS": "SETTINGS",
-    "MENU_ABOUT": "ABOUT",
+    "MENU_SITES": "Chantiers",
+    "MENU_SCANNER": "Scanner QR",
+    "MENU_LOCATION": "Localizer",
+    "MENU_SETTINGS": "Paramètres",
+    "MENU_ABOUT": "Sur",
+    "MENU_PHOTOS": "Photos",
+    "MENU_LOGOUT": "Connectez - Out",
 
-    "MENU_LOGOUT": "LOGOUT"
+    "TITLE_SITE_DETAIL": "Détail du site",
+
+    "SEARCH": "Recherche",
+    "CANCEL": "Annuler",
+    "SURE": "Sûr",
+    "CONFIRMATION_TITLE": "Confirmer",
+    "DELETE_SITE_MESSAGE": "Etes-vous sûr de supprimer ce site?",
+    "NETWORK_ONLINE_MESSAGE": "Tu es en ligne",
+    "NETWORK_OFFLINE_MESSAGE": "Tu es hors ligne"
   },
   "LOGIN": {
     "USERNAME": "Nom d'utilisateur",
     "PASSWORD": "Mot de passe",
     "LOGIN": "S'identifier"
   },
+  "MEDIA": {
+    "CAMERA": "Caméra",
+    "GALLERY": "Galerie"
+  },
+  "SITES": {
+    "FILTER_BY_ALL": "Tous les chantiers",
+    "FILTER_BY_MINE": "Mes chantiers",
+    "FILTER_BY_UO": "Les chantiers de mon UO",
+
+    "CLICK_TO_SCAN": "Cliquez sur le bouton pour lancer QR Scan",
+    "SCAN_BUTTON": "Scan"
+  },
+  "SITE_DETAIL": {
+    "USERNAME": "Nom d'utilisateur",
+    "EMAIL": "Email",
+    "START_TIME": "Heure de début",
+    "LANGUAGE": "La langue",
+    "NOTIFICATION": "Notification"
+  },
   "SETTINGS": {
     "LANGUAGE": "La langue",
     "OFFLINE": "Hors ligne",
-    "ONLINE": "En ligne"
+    "ONLINE": "En ligne",
+    "RESET_STORAGE": "Réinitialiser le stockage"
   }
 }

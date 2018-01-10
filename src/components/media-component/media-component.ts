@@ -1,3 +1,4 @@
+
 import {Component, Output, EventEmitter} from '@angular/core';
 import {Camera, CameraOptions} from '@ionic-native/camera';
 

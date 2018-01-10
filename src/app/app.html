@@ -13,31 +13,43 @@
       </ion-row>
     </ion-grid>
     <ion-list no-lines>
-      <button menuClose ion-item *ngFor="let menuItem of internalMenuItems" (click)="openPage(menuItem)" [class.active-menu]="getActiveMenu(menuItem)" detail-none>
-        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
-        {{menuItem.title}}
+      <button menuClose ion-item (click)="openPage(internalMenuItems[0])" [class.active-menu]="getActiveMenu(internalMenuItems[0])"
+        detail-none>
+        <ion-icon item-left [name]="internalMenuItems[0].icon"></ion-icon>
+        <span [translate]="'COMMON.MENU_SITES'"></span>
         <ion-badge item-end>10+</ion-badge>
       </button>
     </ion-list>
     <div class="separator-line"></div>
     <ion-list no-lines>
-      <button menuClose ion-item *ngFor="let menuItem of functionMenuItems" (click)="openPage(menuItem)" [class.active-menu]="getActiveMenu(menuItem)" detail-none>
-        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
-        {{menuItem.title}}
+      <button menuClose ion-item (click)="openPage(functionMenuItems[0])" [class.active-menu]="getActiveMenu(functionMenuItems[0])"
+        detail-none>
+        <ion-icon item-left [name]="functionMenuItems[0].icon"></ion-icon>
+        <span [translate]="'COMMON.MENU_SCANNER'"></span>
+      </button>
+      <button menuClose ion-item (click)="openPage(functionMenuItems[1])" [class.active-menu]="getActiveMenu(functionMenuItems[1])"
+        detail-none>
+        <ion-icon item-left [name]="functionMenuItems[1].icon"></ion-icon>
+        <span [translate]="'COMMON.MENU_LOCATION'"></span>
       </button>
     </ion-list>
     <div class="separator-line"></div>
     <ion-list no-lines>
-      <button menuClose ion-item *ngFor="let menuItem of otherMenuItems" (click)="openPage(menuItem)" [class.active-menu]="getActiveMenu(menuItem)" detail-none>
-        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
-        {{menuItem.title}}
+      <button menuClose ion-item (click)="openPage(otherMenuItems[0])" [class.active-menu]="getActiveMenu(otherMenuItems[0])" detail-none>
+        <ion-icon item-left [name]="otherMenuItems[0].icon"></ion-icon>
+        <span [translate]="'COMMON.MENU_SETTINGS'"></span>
+      </button>
+      <button menuClose ion-item (click)="openPage(otherMenuItems[1])" [class.active-menu]="getActiveMenu(otherMenuItems[1])" detail-none>
+        <ion-icon item-left [name]="otherMenuItems[1].icon"></ion-icon>
+        <span [translate]="'COMMON.MENU_ABOUT'"></span>
       </button>
     </ion-list>
     <div class="separator-line"></div>
     <ion-list no-lines>
-      <button menuClose ion-item *ngFor="let menuItem of accountMenuItems" (click)="logout()" detail-none>
-        <ion-icon item-left [name]="menuItem.icon"></ion-icon>
-        {{menuItem.title}}
+      <button menuClose ion-item (click)="logout()" [class.active-menu]="getActiveMenu(accountMenuItems[0])"
+        detail-none>
+        <ion-icon item-left [name]="accountMenuItems[0].icon"></ion-icon>
+        <span [translate]="'COMMON.MENU_LOGOUT'"></span>
       </button>
     </ion-list>
   </ion-content>

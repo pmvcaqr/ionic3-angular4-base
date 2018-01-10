@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Site Detail</ion-title>
+    <ion-title>{{ 'COMMON.TITLE_SITE_DETAIL' | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only *ngIf="isEditMode" (click)="saveDetail()">
         <ion-icon name="md-checkmark"></ion-icon>
@@ -17,7 +17,7 @@
       <button ion-button icon-only *ngIf="!isEditMode" (click)="deleteItem()">
         <ion-icon name="ios-trash-outline"></ion-icon>
       </button>
-      <div *ngIf="!isEditMode">
+      <div *ngIf="!isEditMode" class="centered-inline">
         <connection-status-indicator></connection-status-indicator>
       </div>
     </ion-buttons>
@@ -59,7 +59,7 @@
   <ion-card>
     <form class="form" [formGroup]="validations_form">
       <ion-item>
-        <ion-label floating color="primary">Username</ion-label>
+        <ion-label floating color="primary">{{ 'SITE_DETAIL.USERNAME' | translate }}</ion-label>
         <ion-input type="text" formControlName="username" class="form-controll" required></ion-input>
       </ion-item>
       <div class="validation-errors">
@@ -71,7 +71,7 @@
       </div>
 
       <ion-item>
-        <ion-label floating color="primary">Email</ion-label>
+        <ion-label floating color="primary">{{ 'SITE_DETAIL.EMAIL' | translate }}</ion-label>
         <ion-input type="text" formControlName="email" (ngModelChange)='logError()'></ion-input>
       </ion-item>
       <div class="validation-errors">
@@ -83,7 +83,7 @@
       </div>
 
       <ion-item>
-        <ion-label color="primary">Start Time</ion-label>
+        <ion-label color="primary">{{ 'SITE_DETAIL.START_TIME' | translate }}</ion-label>
         <ion-datetime pickerFormat="MMM DD YYYY" formControlName="datetime"></ion-datetime>
       </ion-item>
     </form>
@@ -95,14 +95,14 @@
       </ion-list-header>
       <ion-item>
         <ion-icon item-left name="md-globe"></ion-icon>
-        <ion-label>Language</ion-label>
+        <ion-label>{{ 'SITE_DETAIL.LANGUAGE' | translate }}</ion-label>
         <ion-select [(ngModel)]="language">
           <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-icon item-left name="md-notifications"></ion-icon>
-        <ion-label class="label"> Enable notifications </ion-label>
+        <ion-label class="label">{{ 'SITE_DETAIL.NOTIFICATION' | translate }}</ion-label>
         <ion-toggle [(ngModel)]="enableNotifications" (click)="toggleNotifications()"></ion-toggle>
       </ion-item>
     </ion-list>

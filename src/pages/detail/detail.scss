@@ -7,3 +7,10 @@ ion-note {
   padding: 5px 15px;
   color: red;
 }
+
+page-detail {
+  .centered-inline {
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+  }
+}
