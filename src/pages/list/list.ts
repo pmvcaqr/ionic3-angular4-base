@@ -147,7 +147,7 @@ export class ListPage {
 
   filterBy(type) {
     switch (type) {
-      case '1':
+      case "1":
         this
           .service
           .findByName('Tolbiac')
@@ -158,7 +158,7 @@ export class ListPage {
         this.isSearchByFilter = true;
         this.selectedFilter = 'Opt 1'
         break;
-      case '2':
+      case "2":
         this
           .service
           .findByName('Pharmaster')
@@ -169,7 +169,7 @@ export class ListPage {
         this.isSearchByFilter = true;
         this.selectedFilter = 'Opt 2'
         break;
-      case '3':
+      case "3":
         this
           .service
           .findByName('Chantier')
