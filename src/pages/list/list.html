@@ -14,7 +14,8 @@
     <ion-title *ngIf="viewMode=='map'">{{'COMMON.MENU_LOCATION' | translate}}</ion-title>
   </ion-navbar>
   <ion-toolbar class="search-filter-block" *ngIf="(viewMode=='chantiers')">
-    <ion-searchbar placeholder="{{'COMMON.SEARCH' | translate}}" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" *ngIf="!isSearchByFilter"></ion-searchbar>
+    <ion-searchbar placeholder="{{'COMMON.SEARCH' | translate}}" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"
+      *ngIf="!isSearchByFilter"></ion-searchbar>
     <ion-item *ngIf="isSearchByFilter">
       <span>List is filtered by {{selectedFilter}}</span>
       <button ion-button icon-only clear item-end (click)="removeFilter()">
@@ -41,7 +42,7 @@
       <ion-option value="3" (ionSelect)=filterBy(3)>Les chantiers de mon UO</ion-option>
     </ion-select> -->
   </ion-toolbar>
-  <ion-grid class="button-group">
+  <ion-grid class="button-group" *ngIf="(viewMode=='chantiers')">
     <ion-row>
       <ion-col>
         <button ion-button icon-only color="light" [ngClass]="{'selected' : listMode == 'cardList'}" (click)="listMode = 'cardList'">
@@ -72,44 +73,50 @@
     </ion-segment>
   </ion-toolbar> -->
 </ion-header>
+<ion-content class="list">
+  <div [hidden]="viewMode !='chantiers'">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+    <card-list *ngIf="listMode==='cardList'" [items]="properties"></card-list>
+    <masonry-list *ngIf="listMode==='masonryList'" [items]="posts"></masonry-list>
+    <option-list *ngIf="listMode==='optionList'"></option-list>
 
-<ion-content [hidden]="viewMode !='map'" class="list">
-  <!-- <div #map style="width:100%;height:100%;" id="map"></div> -->
-  <map-component #mapComponent></map-component>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+  <div [hidden]="viewMode !='photos'" padding>
+    <media-component (imgData)="onImageSelected($event)"></media-component>
+    <img *ngIf="imgData" [src]="imgData" alt="Image" />
+  </div>
+  <div [hidden]="viewMode !='qrcode'" padding>
+    <qr-component (scanData)="onScanned($event)"></qr-component>
+    <p *ngIf="scanData">{{scanData}}</p>
+  </div>
+  <div [hidden]="viewMode != 'map'" style="width: 100vw; height: 100vh;">
+    <map-component #mapComponent></map-component>
+  </div>
 </ion-content>
-<ion-content [hidden]="viewMode !='chantiers'" class="list">
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
-    </ion-refresher-content>
-  </ion-refresher>
-  <card-list *ngIf="listMode==='cardList'" [items]="properties"></card-list>
-  <masonry-list *ngIf="listMode==='masonryList'" [items]="posts"></masonry-list>
-  <option-list *ngIf="listMode==='optionList'"></option-list>
-
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-
+<!-- <ion-content #content2 [hidden]="viewMode !='photos'">
+  
 </ion-content>
-<ion-content [hidden]="viewMode !='photos'">
-  <media-component (imgData)="onImageSelected($event)"></media-component>
-  <img *ngIf="imgData" [src]="imgData" alt="Image" />
+<ion-content #content3 [hidden]="viewMode !='qrcode'">
+  
 </ion-content>
-<ion-content [hidden]="viewMode !='qrcode'">
-  <qr-component (scanData)="onScanned($event)"></qr-component>
-  <p *ngIf="scanData">{{scanData}}</p>
-</ion-content>
-
+<ion-content #content4 [hidden]="viewMode !='map'" class="list">
+</ion-content> -->
 
 <ion-footer padding>
   <ion-segment [(ngModel)]="viewMode">
-    <ion-segment-button value="chantiers">
+    <ion-segment-button value="chantiers" (ionSelect)="resizeContent()">
       <ion-icon name="list"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button value="photos">
+    <ion-segment-button value="photos" (ionSelect)="resizeContent()">
       <ion-icon name="md-camera"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button value="qrcode">
+    <ion-segment-button value="qrcode" (ionSelect)="resizeContent()">
       <ion-icon name="md-qr-scanner"></ion-icon>
     </ion-segment-button>
     <ion-segment-button value="map" (ionSelect)="initMap()">

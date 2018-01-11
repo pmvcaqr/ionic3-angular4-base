@@ -19,7 +19,9 @@
     "CONFIRMATION_TITLE": "Confirmer",
     "DELETE_SITE_MESSAGE": "Etes-vous sûr de supprimer ce site?",
     "NETWORK_ONLINE_MESSAGE": "Tu es en ligne",
-    "NETWORK_OFFLINE_MESSAGE": "Tu es hors ligne"
+    "NETWORK_OFFLINE_MESSAGE": "Tu es hors ligne",
+    "NETWORK_GO_ONLINE_MESSAGE": "Vous êtes maintenant en ligne",
+    "NETWORK_GO_OFFLINE_MESSAGE": "Vous êtes maintenant déconnecté"
   },
   "LOGIN": {
     "USERNAME": "Nom d'utilisateur",

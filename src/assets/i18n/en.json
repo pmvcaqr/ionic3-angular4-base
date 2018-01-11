@@ -19,7 +19,9 @@
     "CONFIRMATION_TITLE": "Confirmation",
     "DELETE_SITE_MESSAGE": "Are you sure to remove this site?",
     "NETWORK_ONLINE_MESSAGE": "You are online",
-    "NETWORK_OFFLINE_MESSAGE": "You are offline"
+    "NETWORK_OFFLINE_MESSAGE": "You are offline",
+    "NETWORK_GO_ONLINE_MESSAGE": "You are now online",
+    "NETWORK_GO_OFFLINE_MESSAGE": "You are now offline"
   },
   "LOGIN": {
     "USERNAME": "Username",

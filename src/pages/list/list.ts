@@ -10,6 +10,7 @@ import {MediaComponent} from '../../components/media-component/media-component';
 import {QRComponent} from '../../components/qr-component/qr-component';
 import {MapComponent} from '../../components/map-component/map-component';
 import {Select} from 'ionic-angular/components/select/select';
+import {Content} from 'ionic-angular/components/content/content';
 
 declare var google;
 
@@ -17,6 +18,7 @@ declare var google;
 export class ListPage {
   @ViewChild('mapComponent')mapComp : MapComponent;
   @ViewChild('filterSelector')filterSelector : Select;
+  @ViewChild(Content)content : Content;
 
   properties : Array < any > = [
     {
@@ -129,15 +131,14 @@ export class ListPage {
 
     // let popover = this   .popoverCtrl   .create(FilterPopupComponent);
     // popover.onDidDismiss(data => {   switch (data) {     case 1:       this
-    //   .service         .findByName('Tolbiac')         .then(data => {
+    // .service         .findByName('Tolbiac')         .then(data => {
     // this.properties = data;         })         .catch(error =>
     // alert(JSON.stringify(error)));       this.isSearchByFilter = true;
-    // this.selectedFilter = 'Opt 1'       break;     case 2:       this
-    // .service         .findByName('Pharmaster')         .then(data => {
-    // this.properties = data;         })         .catch(error =>
-    // alert(JSON.stringify(error)));       this.isSearchByFilter = true;
-    // this.selectedFilter = 'Opt 2'       break;     case 3:       this
-    // .service         .findByName('Chantier')         .then(data => {
+    // this.selectedFilter = 'Opt 1'       break;     case 2:       this .service
+    // .findByName('Pharmaster')         .then(data => { this.properties = data;
+    // })         .catch(error => alert(JSON.stringify(error)));
+    // this.isSearchByFilter = true; this.selectedFilter = 'Opt 2'       break; case
+    // 3:       this .service         .findByName('Chantier') .then(data => {
     // this.properties = data;         })         .catch(error =>
     // alert(JSON.stringify(error)));       this.isSearchByFilter = true;
     // this.selectedFilter = 'Opt 3'       break;   } }) popover.present({ev:
@@ -234,5 +235,11 @@ export class ListPage {
         })
         .catch(error => alert(error));
     }, 1000)
+  }
+
+  resizeContent() {
+    this
+      .content
+      .resize();
   }
 }
