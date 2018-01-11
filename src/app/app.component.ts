@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs/Observable';
 import {Component, ViewChild} from '@angular/core';
-import {Nav, Platform} from 'ionic-angular';
+import { Nav, Platform, ToastController } from 'ionic-angular';
 import {TranslateService} from '@ngx-translate/core';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -30,7 +31,7 @@ export class MyApp {
   otherMenuItems : Array < MenuItem >;
   accountMenuItems : Array < MenuItem >;
 
-  constructor(public platform : Platform, public statusBar : StatusBar, public splashScreen : SplashScreen, private translate : TranslateService, private storage : Storage) {
+  constructor(public platform : Platform, public statusBar : StatusBar, public splashScreen : SplashScreen, private translate : TranslateService, private storage : Storage, private toastCtrl: ToastController) {
     this.initializeApp();
 
     this.internalMenuItems = [
@@ -80,6 +81,9 @@ export class MyApp {
       .platform
       .ready()
       .then(() => {
+        // listen for network status
+        this.networkConnectionHandler();
+
         // set app language
         this
           .translate
@@ -120,6 +124,39 @@ export class MyApp {
     this.translate.get('COMMON.MENU_SITES').subscribe(value => {
       this.internalMenuItems[0].title = value;
     });
+  }
+
+  private networkConnectionHandler() {
+    var offline = Observable.fromEvent(document, "offline");
+    var online = Observable.fromEvent(document, "online");
+
+    offline.subscribe(() => {
+      this.toastMessage(false);
+    });
+
+    online.subscribe(() => {
+      this.toastMessage(true);
+    });
+  }
+
+  private toastMessage(value) {
+    let _message = value
+      ? this
+        .translate
+        .instant('COMMON.NETWORK_GO_ONLINE_MESSAGE')
+      : this
+        .translate
+        .instant('COMMON.NETWORK_GO_OFFLINE_MESSAGE');
+
+    let toast = this
+      .toastCtrl
+      .create({message: _message, duration: 1500, position: 'top'});
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   getActiveMenu(menuItem) {

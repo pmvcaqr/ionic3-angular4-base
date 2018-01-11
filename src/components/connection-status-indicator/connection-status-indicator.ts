@@ -37,7 +37,6 @@ export class ConnectionStatusIndicatorComponent {
       this
         .appRef
         .tick();
-      this.toastMessage();
     });
 
     online.subscribe(() => {
@@ -47,7 +46,6 @@ export class ConnectionStatusIndicatorComponent {
       this
         .appRef
         .tick();
-      this.toastMessage();
     });
 
     this
@@ -66,26 +64,6 @@ export class ConnectionStatusIndicatorComponent {
     this
       .isOnlineObservable
       .next(this.network.type != 'none');
-  }
-
-  private toastMessage() {
-    let _message = this.isOnline
-      ? this
-        .translate
-        .instant('COMMON.NETWORK_GO_ONLINE_MESSAGE')
-      : this
-        .translate
-        .instant('COMMON.NETWORK_GO_OFFLINE_MESSAGE');
-
-    let toast = this
-      .toastCtrl
-      .create({message: _message, duration: 1500, position: 'top'});
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
   }
 
   popupMessage() {
